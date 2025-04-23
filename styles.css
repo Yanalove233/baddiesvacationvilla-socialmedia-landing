@@ -1,1 +1,62 @@
 body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #000; color: white; } header { background: #5910E5; padding: 2rem; text-align: center; color: white; } nav a { margin: 0 10px; color: #C3FF83; text-decoration: none; font-weight: bold; } .services, .contact { padding: 2rem; background: #111; margin: 1rem; border-radius: 10px; } .services h2, .contact h2 { color: #C3FF83; } ul { list-style-type: none; padding: 0; } li { background: #222; margin: 0.5rem 0; padding: 1rem; border-left: 5px solid #5910E5; } form { display: flex; flex-direction: column; } input, textarea { margin: 0.5rem 0; padding: 1rem; border: none; border-radius: 5px; font-size: 1rem; } button { background: #C3FF83; color: black; border: none; padding: 1rem; font-size: 1rem; border-radius: 5px; cursor: pointer; font-weight: bold; } footer { text-align: center; padding: 1rem; background: #5910E5; color: white; margin-top: 2rem; }.palm-container { position: fixed; bottom: 0; left: 0; width: 100%; pointer-events: none; display: flex; justify-content: space-between; padding: 2rem; z-index: -1; } .palm { width: 80px; animation: sway 3s infinite ease-in-out; } .palm.mirror { transform: scaleX(-1); animation-delay: 1.5s; } @keyframes sway { 0% { transform: rotate(0deg); } 50% { transform: rotate(4deg); } 100% { transform: rotate(0deg); } } 
+/* Animations */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animations */
+header h1, header p {
+  animation: fadeDown 1s ease-out forwards;
+}
+
+.services li {
+  opacity: 0;
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.services li:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.services li:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.services li:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.contact form input,
+.contact form textarea,
+.contact form button {
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.4s;
+}
